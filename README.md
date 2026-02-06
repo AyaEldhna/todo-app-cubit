@@ -1,16 +1,37 @@
-# usma_elgendy_bloc
+# ToDo App using Cubit (Flutter)
 
-A new Flutter project.
+A modern and clean Flutter ToDo application that demonstrates **state management using Cubit**.  
+Manage your tasks efficiently with add, edit, delete, and mark-as-done functionalities.
+
+---
+
+## Features
+
+- ✅ Add, edit, and delete tasks  
+- ✅ Mark tasks as completed or not  
+- ✅ Clean architecture using Cubit for state management  
+- ✅ Responsive design for mobile devices  
+
+---
+
+## Screenshots
+
+## Screenshots
+
+![Home Screen](assets/images/App%20ScreenShot.png)
+
+---
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+### Prerequisites
 
-A few resources to get you started if this is your first Flutter project:
+- Flutter SDK installed  
+- Android Studio or VS Code  
+- Basic knowledge of Flutter and Dart  
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+### Installation & Running the App
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+1. **Clone the repository:**
+```bash
+git clone https://github.com/AyaEldhna/todo-app-cubit.git
