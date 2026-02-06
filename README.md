@@ -1,7 +1,7 @@
 # ToDo App using Cubit (Flutter)
 
 A modern and clean Flutter ToDo application that demonstrates **state management using Cubit**.  
-Manage your tasks efficiently with add, edit, delete, and mark-as-done functionalities.
+Manage your tasks efficiently with add, delete, and mark-as-done functionalities.
 
 ---
 
