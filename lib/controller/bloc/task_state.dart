@@ -1,4 +1,4 @@
-part of 'task_cubit.dart';
+part of 'task_bloc.dart';
 
 sealed class TaskState extends Equatable {
   final List<TaskModel> tasklist;

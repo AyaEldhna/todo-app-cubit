@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 // ignore: unused_import
 import 'package:flutter/rendering.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:usma_elgendy_bloc/models/controller/cubit/task_cubit.dart';
+import 'package:usma_elgendy_bloc/controller/bloc/task_bloc.dart';
+import 'package:usma_elgendy_bloc/controller/bloc/task_event.dart';
 import 'package:usma_elgendy_bloc/models/task_model.dart';
 import 'package:uuid/uuid.dart';
 
@@ -17,8 +18,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(colorScheme: .fromSeed(seedColor: Colors.deepPurple)),
+      title: 'ToDo App',
+      theme: ThemeData(colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple)),
       home: MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
@@ -41,8 +42,8 @@ class _MyHomePageState extends State<MyHomePage> {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         body: BlocProvider(
-          create: (context) => TaskCubit(),
-          child: BlocBuilder<TaskCubit, TaskState>(
+          create: (context) => TaskBloc(),
+          child: BlocBuilder<TaskBloc, TaskState>(
             builder: (context, state) {
               return SafeArea(
                 child: Column(
@@ -54,12 +55,12 @@ class _MyHomePageState extends State<MyHomePage> {
                     ElevatedButton(
                       onPressed: () {
                         if (widget.controller.text.isEmpty) return;
-                        context.read<TaskCubit>().addTask(
-                          TaskModel(
+                        context.read<TaskBloc>().add(
+                          AddTaskEvent(TaskModel(
                             id: Uuid().v4(),
                             title: widget.controller.text,
                             isCompleted: false,
-                          ),
+                          )),
                         );
                         widget.controller.clear();
                       },
@@ -74,15 +75,15 @@ class _MyHomePageState extends State<MyHomePage> {
                             leading: Checkbox(
                               value: state.tasklist[index].isCompleted,
                               onChanged: (_) {
-                                context.read<TaskCubit>().toggleTask(
-                                  state.tasklist[index].id,
+                                context.read<TaskBloc>().add(
+                                  ToggleTaskEvent(state.tasklist[index].id),
                                 );
                               },
                             ),
                             trailing: IconButton(
                               onPressed: () {
-                                context.read<TaskCubit>().removeTask(
-                                  state.tasklist[index].id,
+                                context.read<TaskBloc>().add(
+                                  RemoveTaskEvent(state.tasklist[index].id),
                                 );
                               },
                               icon: Icon(Icons.delete),
