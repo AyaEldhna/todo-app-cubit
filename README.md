@@ -15,9 +15,6 @@ Manage your tasks efficiently with add, edit, delete, and mark-as-done functiona
 
 ---
 
-## Screenshots
-
-_![Home Screen](assets\images\App ScreenShot.png)
 
 
 ---
